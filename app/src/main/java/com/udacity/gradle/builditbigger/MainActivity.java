@@ -1,16 +1,11 @@
 package com.udacity.gradle.builditbigger;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ProgressBar;
-
-import com.udacity.gradle.androidlibs.jokeshow.DisplayJokeActivity;
-import com.udacity.gradle.javalibs.JokeTeller;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -53,15 +48,12 @@ public class MainActivity extends AppCompatActivity {
         //Toast.makeText(this, JokeTeller.getRandomJoke() , Toast.LENGTH_SHORT).show();
 
         // Step 2: Create an Android Library
-        Intent intent = new Intent(this, DisplayJokeActivity.class);
-        intent.putExtra(Intent.EXTRA_TEXT, JokeTeller.getRandomJoke());
-        startActivity(intent);
-
-        ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar);
-        progressBar.setVisibility(View.VISIBLE);
+        //Intent intent = new Intent(this, DisplayJokeActivity.class);
+        //intent.putExtra(Intent.EXTRA_TEXT, JokeTeller.getRandomJoke());
+        //startActivity(intent);
 
         // Step 3: Step 3: Create GCE Module
-        // new CallGCEJokerAsyncTask().execute(this);
+        new com.udacity.gradle.builditbigger.CallGCEJokerAsyncTask(this).execute(this);
 
     }
 }
