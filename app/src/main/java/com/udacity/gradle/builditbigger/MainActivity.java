@@ -1,5 +1,6 @@
 package com.udacity.gradle.builditbigger;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -7,6 +8,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
+
+import com.udacity.gradle.androidlibs.jokeshow.DisplayJokeActivity;
+import com.udacity.gradle.javalibs.JokeTeller;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -45,13 +49,13 @@ public class MainActivity extends AppCompatActivity {
 
     public void tellJoke(View view) {
 
-        // Step 1: Create a Java library and use it
-        // Toast.makeText(this,TellJavaJoke.getRandomJoke() , Toast.LENGTH_SHORT).show();
+        //Step 1: Create a Java library and use it
+        //Toast.makeText(this, JokeTeller.getRandomJoke() , Toast.LENGTH_SHORT).show();
 
         // Step 2: Create an Android Library
-        //Intent intent = new Intent(this, DisplayJokeActivity.class);
-        //intent.putExtra(Intent.EXTRA_TEXT, TellJavaJoke.getRandomJoke());
-        //startActivity(intent);
+        Intent intent = new Intent(this, DisplayJokeActivity.class);
+        intent.putExtra(Intent.EXTRA_TEXT, JokeTeller.getRandomJoke());
+        startActivity(intent);
 
         ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar);
         progressBar.setVisibility(View.VISIBLE);
